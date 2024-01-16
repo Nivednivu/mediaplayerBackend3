@@ -1,0 +1,62 @@
+{
+  "video": [
+    {
+      "id": "60",
+      "caption": "Athmave Poo",
+      "url": "https://img1.hotstarext.com/image/upload/f_auto,t_web_m_1x/sources/r1/cms/prod/355/1500355-h-48caf56cb94e",
+      "embedlink": "https://www.youtube.com/embed/eysNkSGQH_I"
+    }
+  ],
+  "category": [
+    {
+      "id": 8
+    },
+    {
+      "catergoryname": "Athmave",
+      "allvideo": [
+        {
+          "id": "60",
+          "caption": "Athmave Poo",
+          "url": "https://img1.hotstarext.com/image/upload/f_auto,t_web_m_1x/sources/r1/cms/prod/355/1500355-h-48caf56cb94e",
+          "embedlink": "https://www.youtube.com/embed/eysNkSGQH_I"
+        }
+      ],
+      "id": 9
+    },
+    {
+      "id": 10
+    }
+  ],
+  "history": [
+    {
+      "caption": "bangalor days",
+      "embedlink": "https://www.youtube.com/embed/WS4Mev_vRAc",
+      "timetamp": "14/01/2024, 00:12:11",
+      "id": 1
+    },
+    {
+      "caption": "bangalor days",
+      "embedlink": "https://www.youtube.com/embed/WS4Mev_vRAc",
+      "timetamp": "14/01/2024, 23:25:43",
+      "id": 2
+    },
+    {
+      "caption": "bangalor days",
+      "embedlink": "https://www.youtube.com/embed/WS4Mev_vRAc",
+      "timetamp": "15/01/2024, 00:36:10",
+      "id": 3
+    },
+    {
+      "caption": "The Hymn Of Dhara",
+      "embedlink": "https://www.youtube.com/embed/chmg6AYj28Y",
+      "timetamp": "16/01/2024, 16:54:13",
+      "id": 4
+    },
+    {
+      "caption": "Athmave Poo",
+      "embedlink": "https://www.youtube.com/embed/eysNkSGQH_I",
+      "timetamp": "16/01/2024, 17:32:26",
+      "id": 5
+    }
+  ]
+}

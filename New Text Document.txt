@@ -1,0 +1,117 @@
+import React from 'react';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import Form from 'react-bootstrap/Form';
+import { useState } from 'react';
+import { uploadvideo } from '../Services/allApi';
+
+
+
+function Add(setUploadVideoStatus) {
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  
+  const [videos,setvideos]=useState({
+id:"",
+caption:"",
+url:"",
+embedlink:""
+  } )
+  const embedVideolink=(e)=>{
+       const {value}= e.target
+       console.log(value.slice(-11));
+       const link =`https://www.youtube.com/embed/${value.slice(-11)}`
+       setvideos ({...videos , embedlink:link})
+  }
+console.log(videos);
+
+const handleUpload= async ()=>{
+  const {id,caption,url,embedlink}=videos
+  if(!id || !caption || !url || !embedlink){
+    alert ("Please fill the form completely")
+  }
+  else{
+   const response= await uploadvideo(videos)
+   console.log(response);
+   if(response.status>=200 && response.status<300){
+    alert('uploaded sucessfully')
+    setUploadVideoStatus(response.data)
+
+    handleClose()
+   }
+   else{
+    console.log(response);
+    alert ('something went wrong .Try again later')
+   }
+  }
+}
+  return (
+    <>
+    <button onClick={handleShow}  className='btn btn-warning mt-4'><i class="fa-solid fa-upload"></i> {' '}Upload new video</button>
+    <Modal 
+    show={show} 
+    onHide={handleClose}
+    backdrop="static"
+    keyboard = {false}
+    >
+        <Modal.Header closeButton>
+          <Modal.Title>Upload Videos</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <form className='p-3 border border-secondary rounded'>
+          <Form.Group  md="4" controlId="formBasicEmail">
+          <Form.Control
+            type="text"
+            placeholder="Enter Video Id" onChange={(e)=>setvideos({...videos,id:e.target.value})}
+          />
+          {/* <Form.Control.Feedback>Looks good!</Form.Control.Feedback> */}
+        </Form.Group>
+
+        <Form.Group  md="4" controlId="formBasicEmail">
+          <Form.Control
+            type="text"
+            placeholder="Enter Video Caption"  onChange={(e)=>setvideos({...videos,caption:e.target.value})}
+          />
+          {/* <Form.Control.Feedback>Looks good!</Form.Control.Feedback> */}
+        </Form.Group>
+        <Form.Group  md="4" controlId="formBasicEmail">
+          <Form.Control
+            type="text"
+            placeholder="Enter Video Image URL" onChange={(e)=>setvideos({...videos,url:e.target.value})}
+          />
+          {/* <Form.Control.Feedback>Looks good!</Form.Control.Feedback> */}
+        </Form.Group>
+        <Form.Group  md="4" controlId="formBasicEmail">
+          <Form.Control
+            type="text"
+            placeholder="First Enter YouTube Video Link" onChange={embedVideolink}
+          />
+          {/* <Form.Control.Feedback>Looks good!</Form.Control.Feedback> */}
+        </Form.Group>
+
+        
+          </form>
+  
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            cancel
+          </Button>
+          <Button variant="primary" onClick={handleUpload}>
+            Upload
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+    </>
+  )
+}
+
+export default Add 
+// https://www.youtube.com/watch?v=psi5C9WM3i0
+// https://www.youtube.com/embed/psi5C9WM3i0
+
+
